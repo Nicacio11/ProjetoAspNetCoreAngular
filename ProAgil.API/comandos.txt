@@ -1,0 +1,10 @@
+dotnet tool install --global dotnet-ef --version 3.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 3.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 3.0.0
+
+habilitando migrations
+dotnet ef migrations add FirstMigration
+
