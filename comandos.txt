@@ -1,0 +1,38 @@
+Extensões para o c# no vscode
+C#
+C# Extensions
+Nuget Package Manager
+Path Intellisense
+Bracket Pair Colorizer
+Material-Icons
+
+Extensões Angular
+Angular Files
+Angular Language Service
+Angular2-switcher
+Auto Rename Tag
+debug for chrome
+npm
+Bracket Pair Colorizer
+Prettier - CodeFormatter
+TsLint
+
+dotnet tool install --global dotnet-ef --version 3.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 3.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 3.0.0
+
+habilitando migrations
+dotnet ef migrations add FirstMigration
+
+instalando angular
+npm install -g @angular/cli
+
+criando projeto
+ng new ProAgil-App
+
+startando projeto
+ng serve -o
+-o faz abrir ja o projeto
