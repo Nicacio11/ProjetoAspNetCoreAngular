@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using ProAgil.API.Data;
 using System.Linq;
-using ProAgil.API.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using ProAgil.Repository;
 
 namespace ProAgil.API.Controllers
 {
@@ -37,7 +36,7 @@ namespace ProAgil.API.Controllers
         {
             try
             {
-                return Ok(await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id.Value));
+                return Ok(await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id.Value));
 
             }
             catch (System.Exception)

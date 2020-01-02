@@ -26,7 +26,17 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools --version 3.0.0
 
 habilitando migrations
 dotnet ef migrations add FirstMigration
+ dotnet ef --startup-project ..\ProAgil.API\ migrations add init 
+ dotnet ef --startup-project ..\ProAgil.API\ database update    
+atualizando banco
+dotnet ef 
+database update
 
+//adicionando referencia a um projeto
+ dotnet add .\ProAgil.API\ProAgil.API.csproj reference .\ProAgil.Repository\ProAgil.Repository.csproj
+//adicionando referencia a uma solucao
+ dotnet sln Nicacio.ProAgil.sln add  .\ProAgil.API\ProAgil.API.csproj .\ProAgil.Repository\ProAgil.Repository.csproj 
+ .\ProAgil.Domain\ProAgil.Domain.csproj
 instalando angular
 npm install -g @angular/cli
 

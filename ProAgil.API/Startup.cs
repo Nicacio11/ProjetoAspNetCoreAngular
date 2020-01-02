@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ProAgil.API.Data;
+using ProAgil.Repository;
 
 namespace ProAgil.API
 {
@@ -39,6 +39,7 @@ namespace ProAgil.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseStaticFiles();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
