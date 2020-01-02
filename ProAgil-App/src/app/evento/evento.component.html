@@ -15,11 +15,11 @@
 <br />
 <p>Filtro Por : {{ filtroLista }}</p>
 <table class="table table-striped">
-  <thead class="thead-dark">
+  <thead class="thead-light">
     <tr>
       <th>
         <button class="btn btn-outline-primary" (click)="alternarImagem()">
-          Mostrar Imagem
+          <i class="{{mostrarImagem>0? 'fa fa-eye-slash':'fa fa-eye'}}"></i>
         </button>
       </th>
       <th>#</th>
@@ -42,12 +42,15 @@
         />
       </td>
       <td *ngIf="!mostrarImagem"></td>
-      <td>{{ evento.eventoId }}</td>
+      <td>{{ evento.id }}</td>
       <td>{{ evento.tema }}</td>
       <td>{{ evento.local }}</td>
-      <td>{{ evento.dataEvento }}</td>
+      <td>{{ evento.dataEvento | DateTimeFormatPipe }}</td>
       <td>{{ evento.qtdPessoas }}</td>
-      <td>{{ evento.lote | uppercase }}</td>
+      <td>
+        <div *ngIf="!evento.lotes.length">Não informado</div>
+        <div *ngIf="evento.lotes.length">{{evento.lotes[0].nome}}</div>
+      </td>
       <td>
         <button class="btn btn-success"></button>
         <button class="btn btn-danger"></button>

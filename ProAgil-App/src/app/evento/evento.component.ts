@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { EventoService } from '../_services/evento.service';
+import { Evento } from '../_models/Evento';
 
 @Component({
   selector: 'app-evento',
@@ -10,7 +12,7 @@ import { Observable } from 'rxjs';
 export class EventoComponent implements OnInit {
   _filtroLista: string;
   eventosFiltrados: any = [];
-  eventos: any;
+  eventos: Evento[] = [];
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = false;
@@ -24,13 +26,13 @@ export class EventoComponent implements OnInit {
       ? this.filtrarEvento(this.filtroLista)
       : this.eventos;
   }
-  filtrarEvento(filtrarPor: string): any {
+  filtrarEvento(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
       evento => evento.tema.toLowerCase().indexOf(filtrarPor) !== -1
     );
   }
-  constructor(private http: HttpClient) {}
+  constructor(private eventoService: EventoService) {}
 
   ngOnInit() {
     this.getEventos();
@@ -38,11 +40,12 @@ export class EventoComponent implements OnInit {
   alternarImagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
-  getEventos() {
-    this.eventos = this.http.get('http://localhost:5000/site/evento').subscribe(
-      response => {
-        this.eventos = response;
-        console.log(response);
+  getEventos(){
+    this.eventoService.getAllEvento().subscribe(
+       (eve: Evento[]) => {
+        this.eventosFiltrados = eve;
+        this.eventos = eve;
+        console.log(eve);
       },
       error => {
         console.log(error);
