@@ -6,25 +6,26 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using ProAgil.Repository;
+using ProAgil.Domain;
 
 namespace ProAgil.API.Controllers
 {
-    [Route("site/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class EventoController : ControllerBase
     {
-        public readonly DataContext _context;
+        public readonly IProAgilRepository _context;
 
-        public EventoController(DataContext context)
+        public EventoController(IProAgilRepository context)
         {
             _context = context;
         }
         [HttpGet]
-        public async Task<IActionResult> Get([FromServices]DataContext context)
+        public async Task<IActionResult> Get([FromServices]IProAgilRepository context)
         {
             try
             {
-                return Ok(await context.Eventos.ToListAsync());
+                return Ok(await context.GetAllEventoAsync(true));
             }
             catch (System.Exception)
             {
@@ -36,7 +37,7 @@ namespace ProAgil.API.Controllers
         {
             try
             {
-                return Ok(await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id.Value));
+                return Ok(await _context.GetAllEventoByIdAsync(id.Value));
 
             }
             catch (System.Exception)
@@ -44,6 +45,63 @@ namespace ProAgil.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
             }
         }
+		[HttpPost]
+		public async Task<IActionResult> Post([FromBody]Evento model)
+		{
+			try
+			{
+				_context.Add(model);
+				if(await _context.SaveChangesAsync())
+				{
+					return Created($"/api/evento/{model.Id}", model);
+				}
+			}
+			catch (System.Exception)
+			{
+				return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
+			}
+			return BadRequest();
+		}
 
-    }
+		[HttpPut]
+		public async Task<IActionResult> Put(int id, [FromBody]Evento model)
+		{
+			try
+			{
+				var evento = _context.GetAllEventoByIdAsync(id, false);
+				if (evento == null)
+					return NotFound();
+				_context.Update(model);
+				if (await _context.SaveChangesAsync())
+				{
+					return Created($"/api/evento/{model.Id}", model);
+				}
+			}
+			catch (System.Exception)
+			{
+				return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
+			}
+			return BadRequest();
+		}
+		[HttpDelete]
+		public async Task<IActionResult> Delete(int id)
+		{
+			try
+			{
+				var evento = _context.GetAllEventoByIdAsync(id, false);
+				if (evento == null)
+					return NotFound();
+				_context.Delete(evento);
+				if (await _context.SaveChangesAsync())
+				{
+					return Ok();
+				}
+			}
+			catch (System.Exception)
+			{
+				return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
+			}
+			return BadRequest();
+		}
+	}
 }

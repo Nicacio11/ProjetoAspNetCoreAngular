@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AspNetProjects\\DotNetCore\\ProAgil.API\\ProAgil.API.csproj": {}
+    "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.API\\ProAgil.API.csproj": {}
   },
   "projects": {
-    "C:\\AspNetProjects\\DotNetCore\\ProAgil.API\\ProAgil.API.csproj": {
+    "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.API\\ProAgil.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AspNetProjects\\DotNetCore\\ProAgil.API\\ProAgil.API.csproj",
+        "projectUniqueName": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.API\\ProAgil.API.csproj",
         "projectName": "ProAgil.API",
-        "projectPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.API\\ProAgil.API.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.API\\obj\\",
+        "projectPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.API\\ProAgil.API.csproj",
+        "packagesPath": "C:\\Users\\vitor.nicacio\\.nuget\\packages\\",
+        "outputPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vitor.nicacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -31,11 +31,11 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj": {
-                "projectPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj"
+              "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj": {
+                "projectPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj"
               },
-              "C:\\AspNetProjects\\DotNetCore\\ProAgil.Repository\\ProAgil.Repository.csproj": {
-                "projectPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Repository\\ProAgil.Repository.csproj"
+              "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Repository\\ProAgil.Repository.csproj": {
+                "projectPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Repository\\ProAgil.Repository.csproj"
               }
             }
           }
@@ -88,20 +88,20 @@
         }
       }
     },
-    "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj": {
+    "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj",
+        "projectUniqueName": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj",
         "projectName": "ProAgil.Domain",
-        "projectPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\obj\\",
+        "projectPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj",
+        "packagesPath": "C:\\Users\\vitor.nicacio\\.nuget\\packages\\",
+        "outputPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vitor.nicacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -147,20 +147,20 @@
         }
       }
     },
-    "C:\\AspNetProjects\\DotNetCore\\ProAgil.Repository\\ProAgil.Repository.csproj": {
+    "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Repository\\ProAgil.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Repository\\ProAgil.Repository.csproj",
+        "projectUniqueName": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Repository\\ProAgil.Repository.csproj",
         "projectName": "ProAgil.Repository",
-        "projectPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Repository\\ProAgil.Repository.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Repository\\obj\\",
+        "projectPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Repository\\ProAgil.Repository.csproj",
+        "packagesPath": "C:\\Users\\vitor.nicacio\\.nuget\\packages\\",
+        "outputPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vitor.nicacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -174,8 +174,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj": {
-                "projectPath": "C:\\AspNetProjects\\DotNetCore\\ProAgil.Domain\\ProAgil.Domain.csproj"
+              "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj": {
+                "projectPath": "C:\\_personalRepositories\\ProjetoAspNetCoreAngular\\ProAgil.Domain\\ProAgil.Domain.csproj"
               }
             }
           }
