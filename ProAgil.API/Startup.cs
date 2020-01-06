@@ -20,9 +20,10 @@ namespace ProAgil.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
 
-        public IConfiguration Configuration { get; }
+		}
+
+		public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -32,16 +33,19 @@ namespace ProAgil.API
                 );
 			services.AddScoped<IProAgilRepository, ProAgilRepository>();
 
-            services.AddControllers();
-            services.AddCors();
+			// Microsoft.AspNetCore.Mvc.NewtonsoftJson
+			//vai resolver o problema de não converter json para  int e etc
+			services.AddControllers().AddNewtonsoftJson();
+
+			services.AddCors();
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            app.UseStaticFiles();
+			app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+			app.UseStaticFiles();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -57,7 +61,8 @@ namespace ProAgil.API
             {
                 endpoints.MapControllers();
             });
-            //app.UseMvc();
-        }
-    }
+			//app.UseMvc();
+
+		}
+	}
 }

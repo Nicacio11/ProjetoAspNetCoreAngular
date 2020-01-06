@@ -37,7 +37,9 @@ namespace ProAgil.Repository
 
 		public void Delete<T>(T entity) where T : class
 		{
-			_context.Remove(entity);
+			_context.Attach(entity);
+			_context.Entry(entity).State = EntityState.Deleted;
+		//	_context.Remove(entity);
 		}
 
 		public async Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool palestrantes = false)

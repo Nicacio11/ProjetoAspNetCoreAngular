@@ -85,10 +85,14 @@ C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcorea
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.csprojAssemblyReference.cache
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\staticwebassets\ProAgil.API.StaticWebAssets.Manifest.cache
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\staticwebassets\ProAgil.API.StaticWebAssets.xml
-C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.MvcApplicationPartsAssemblyInfo.cache
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.AssemblyInfoInputs.cache
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.AssemblyInfo.cs
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.RazorTargetAssemblyInfo.cache
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.csproj.CopyComplete
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.dll
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.pdb
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.MvcApplicationPartsAssemblyInfo.cache

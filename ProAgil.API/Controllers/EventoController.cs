@@ -10,48 +10,49 @@ using ProAgil.Domain;
 
 namespace ProAgil.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EventoController : ControllerBase
-    {
-        public readonly IProAgilRepository _context;
+	[Route("api/[controller]")]
+	[ApiController]
+	public class EventoController : ControllerBase
+	{
+		public readonly IProAgilRepository _context;
 
-        public EventoController(IProAgilRepository context)
-        {
-            _context = context;
-        }
-        [HttpGet]
-        public async Task<IActionResult> Get([FromServices]IProAgilRepository context)
-        {
-            try
-            {
-                return Ok(await context.GetAllEventoAsync(true));
-            }
-            catch (System.Exception)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
-            }
-        }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int? id)
-        {
-            try
-            {
-                return Ok(await _context.GetAllEventoByIdAsync(id.Value));
+		public EventoController(IProAgilRepository context)
+		{
+			_context = context;
+		}
+		[HttpGet]
+		public async Task<IActionResult> Get([FromServices]IProAgilRepository context)
+		{
+			try
+			{
+				return Ok(await context.GetAllEventoAsync(true));
+			}
+			catch (System.Exception)
+			{
+				return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
+			}
+		}
+		[HttpGet("{id}")]
+		public async Task<IActionResult> Get(int? id)
+		{
+			try
+			{
+				return Ok(await _context.GetAllEventoByIdAsync(id.Value));
 
-            }
-            catch (System.Exception)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
-            }
-        }
+			}
+			catch (System.Exception)
+			{
+				return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
+			}
+		}
+
 		[HttpPost]
-		public async Task<IActionResult> Post([FromBody]Evento model)
+		public async Task<IActionResult> Post(Evento model)
 		{
 			try
 			{
 				_context.Add(model);
-				if(await _context.SaveChangesAsync())
+				if (await _context.SaveChangesAsync())
 				{
 					return Created($"/api/evento/{model.Id}", model);
 				}
@@ -63,8 +64,8 @@ namespace ProAgil.API.Controllers
 			return BadRequest();
 		}
 
-		[HttpPut]
-		public async Task<IActionResult> Put(int id, [FromBody]Evento model)
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Put(int id, Evento model)
 		{
 			try
 			{
@@ -83,7 +84,7 @@ namespace ProAgil.API.Controllers
 			}
 			return BadRequest();
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> Delete(int id)
 		{
 			try
@@ -91,13 +92,13 @@ namespace ProAgil.API.Controllers
 				var evento = _context.GetAllEventoByIdAsync(id, false);
 				if (evento == null)
 					return NotFound();
-				_context.Delete(evento);
+				_context.Delete(evento.Result);
 				if (await _context.SaveChangesAsync())
 				{
 					return Ok();
 				}
 			}
-			catch (System.Exception)
+			catch (System.Exception ex)
 			{
 				return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados Falhou");
 			}
