@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +37,7 @@ namespace ProAgil.API
 			// Microsoft.AspNetCore.Mvc.NewtonsoftJson
 			//vai resolver o problema de não converter json para  int e etc
 			services.AddControllers().AddNewtonsoftJson();
-
+			services.AddAutoMapper(typeof(Startup));
 			services.AddCors();
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }

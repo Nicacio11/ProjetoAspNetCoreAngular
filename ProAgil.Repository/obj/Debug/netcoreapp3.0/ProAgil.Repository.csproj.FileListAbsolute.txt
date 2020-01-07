@@ -1,0 +1,11 @@
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\bin\Debug\netcoreapp3.0\ProAgil.Repository.deps.json
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\bin\Debug\netcoreapp3.0\ProAgil.Repository.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\bin\Debug\netcoreapp3.0\ProAgil.Repository.pdb
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\bin\Debug\netcoreapp3.0\ProAgil.Domain.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\bin\Debug\netcoreapp3.0\ProAgil.Domain.pdb
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\obj\Debug\netcoreapp3.0\ProAgil.Repository.csprojAssemblyReference.cache
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\obj\Debug\netcoreapp3.0\ProAgil.Repository.AssemblyInfoInputs.cache
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\obj\Debug\netcoreapp3.0\ProAgil.Repository.AssemblyInfo.cs
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\obj\Debug\netcoreapp3.0\ProAgil.Repository.csproj.CopyComplete
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\obj\Debug\netcoreapp3.0\ProAgil.Repository.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.Repository\obj\Debug\netcoreapp3.0\ProAgil.Repository.pdb

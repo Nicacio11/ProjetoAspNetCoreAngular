@@ -96,3 +96,5 @@ C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcorea
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
 C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\obj\Debug\netcoreapp3.0\ProAgil.API.MvcApplicationPartsAssemblyInfo.cache
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\AutoMapper.dll
+C:\_personalRepositories\ProjetoAspNetCoreAngular\ProAgil.API\bin\Debug\netcoreapp3.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
