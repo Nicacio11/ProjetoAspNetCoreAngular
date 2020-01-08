@@ -6,6 +6,8 @@ import { Evento } from '../_models/Evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import {defineLocale, BsLocaleService, ptBrLocale} from 'ngx-bootstrap';
+import { ToastrService } from 'ngx-toastr';
+
 defineLocale('pt-br', ptBrLocale);
 @Component({
   selector: 'app-evento',
@@ -25,7 +27,8 @@ export class EventoComponent implements OnInit {
   bodyDeletarEvento = '';
 
   constructor(private fb: FormBuilder,
-    private eventoService: EventoService, private modalService: BsModalService, private localeService: BsLocaleService) {
+    private eventoService: EventoService, private modalService: BsModalService, private localeService: BsLocaleService, 
+    private toastr: ToastrService) {
     this.localeService.use('pt-br');
   }
   get filtroLista() {
@@ -66,8 +69,9 @@ export class EventoComponent implements OnInit {
           (novoEvento) => {
             console.log(novoEvento);
             template.hide();
+            this.toastr.success('Inserido com sucesso!');
             this.getEventos();
-          }, error => {console.log(error);}
+          }, error => {this.toastr.error(`Erro ao inserir: ${error.message}!`);}
           );
         }else{
           this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
@@ -75,8 +79,9 @@ export class EventoComponent implements OnInit {
             (novoEvento) => {
               console.log(novoEvento);
               template.hide();
+              this.toastr.success('Editado com sucesso!');
               this.getEventos();
-            }, error => {console.log(error);}
+            }, error => {this.toastr.error(`Erro ao alterar: ${error.message}!`);}
             );
         }
     }
@@ -124,6 +129,7 @@ export class EventoComponent implements OnInit {
       () => {
           template.hide();
           this.getEventos();
+          this.toastr.error('Erro ao tentar deletar!');
         }, error => {
           console.log(error);
         }

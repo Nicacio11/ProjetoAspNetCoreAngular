@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ProAgil.API.Helper;
 using ProAgil.Repository;
 
 namespace ProAgil.API
@@ -38,6 +39,7 @@ namespace ProAgil.API
 			//vai resolver o problema de não converter json para  int e etc
 			services.AddControllers().AddNewtonsoftJson();
 			services.AddAutoMapper(typeof(Startup));
+			//services.AddAutoMapper(c => c.AddProfile<AutoMapperProfile>(), typeof(Startup));
 			services.AddCors();
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
