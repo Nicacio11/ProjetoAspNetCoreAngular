@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">ProAgil Eventos</a>
+    <a class="navbar-brand" routerLink="dashboard">ProAgil Eventos</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -15,16 +15,16 @@
 
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="evento"
             >Eventos <span class="sr-only">(página atual)</span></a
           >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Palestrantes</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="palestrante">Palestrantes</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contatos</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="contato">Contatos</a>
         </li>
       </ul>
     </div>

@@ -8,26 +8,46 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventoComponent } from './evento/evento.component';
 import { NavComponent } from './nav/nav.component';
+import { ContatoComponent } from './contato/contato.component';
+import { EventoComponent } from './evento/evento.component';
+import { PalestranteComponent } from './palestrante/Palestrante.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TituloComponent } from './_shared/titulo/titulo.component';
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
 
 @NgModule({
-  declarations: [AppComponent,
-    EventoComponent,
-    NavComponent,
-    DateTimeFormatPipePipe
-  ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,
-    BsDropdownModule.forRoot(),
-    TooltipModule.forRoot(),
-    ModalModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    ReactiveFormsModule, BrowserAnimationsModule,
-    ToastrModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      NavComponent,
+      TituloComponent,
+      EventoComponent,
+      ContatoComponent,
+      PalestranteComponent,
+      DashboardComponent,
+      DateTimeFormatPipePipe
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      FormsModule,
+      BsDropdownModule.forRoot(),
+      TooltipModule.forRoot(),
+      ModalModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      ReactiveFormsModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot({
+         timeOut: 3000,
+         preventDuplicates: true,
+         progressBar: true
+      })
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule {}

@@ -15,6 +15,7 @@ defineLocale('pt-br', ptBrLocale);
   styleUrls: ['./evento.component.css']
 })
 export class EventoComponent implements OnInit {
+  titulo = 'Eventos';
   _filtroLista: string;
   eventosFiltrados: any = [];
   eventos: Evento[] = [];
@@ -67,7 +68,6 @@ export class EventoComponent implements OnInit {
         this.evento = Object.assign({}, this.registerForm.value);
         this.eventoService.postEvento(this.evento).subscribe(
           (novoEvento) => {
-            console.log(novoEvento);
             template.hide();
             this.toastr.success('Inserido com sucesso!');
             this.getEventos();
@@ -77,7 +77,6 @@ export class EventoComponent implements OnInit {
           this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
           this.eventoService.putEvento(this.evento).subscribe(
             (novoEvento) => {
-              console.log(novoEvento);
               template.hide();
               this.toastr.success('Editado com sucesso!');
               this.getEventos();
@@ -102,10 +101,9 @@ export class EventoComponent implements OnInit {
        (eve: Evento[]) => {
         this.eventosFiltrados = eve;
         this.eventos = eve;
-        console.log(eve);
       },
       error => {
-        console.log(error);
+        this.toastr.error(`Erro ao carregar: ${error.message}!`);
       }
     );
   }
@@ -131,7 +129,7 @@ export class EventoComponent implements OnInit {
           this.getEventos();
           this.toastr.error('Erro ao tentar deletar!');
         }, error => {
-          console.log(error);
+          this.toastr.error(`Erro ao excluir: ${error.message}!`)
         }
     );
   }
