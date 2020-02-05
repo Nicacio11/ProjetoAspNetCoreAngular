@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ProAgil.API.Helper;
@@ -36,7 +39,7 @@ namespace ProAgil.API
 			services.AddScoped<IProAgilRepository, ProAgilRepository>();
 
 			// Microsoft.AspNetCore.Mvc.NewtonsoftJson
-			//vai resolver o problema de não converter json para  int e etc
+			//vai resolver o problema de nï¿½o converter json para  int e etc
 			services.AddControllers().AddNewtonsoftJson();
 			services.AddAutoMapper(typeof(Startup));
 			//services.AddAutoMapper(c => c.AddProfile<AutoMapperProfile>(), typeof(Startup));
@@ -49,6 +52,12 @@ namespace ProAgil.API
         {
 			app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 			app.UseStaticFiles();
+
+            //configurando a pasta que resources
+            app.UseStaticFiles(new StaticFileOptions(){
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+                RequestPath = new PathString("/Resources")
+            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

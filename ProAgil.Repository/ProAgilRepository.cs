@@ -27,12 +27,15 @@ namespace ProAgil.Repository
 
 		public void Add<T>(T entity) where T : class
 		{
-			_context.Add(entity);
+			_context.Set<T>().Add(entity);
+//			_context.Add(entity);
 		}
 
 		public void Update<T>(T entity) where T : class
 		{
-			_context.Update(entity);
+			_context.Attach(entity);
+			_context.Entry(entity).State = EntityState.Modified;
+			//_context.Update(entity);
 		}
 
 		public void Delete<T>(T entity) where T : class

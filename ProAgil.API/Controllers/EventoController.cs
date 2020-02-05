@@ -9,6 +9,8 @@ using ProAgil.Repository;
 using ProAgil.Domain;
 using AutoMapper;
 using ProAgil.API.DTOs;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace ProAgil.API.Controllers
 {
@@ -30,7 +32,8 @@ namespace ProAgil.API.Controllers
 			try
 			{
 				var eventos = await context.GetAllEventoAsync(true);
-				return Ok(mapper.Map<List<EventoDTO>>(eventos));
+				var retorno = mapper.Map<List<EventoDTO>>(eventos);
+				return Ok(retorno);
 			}
 			catch (System.Exception ex)
 			{
@@ -56,6 +59,37 @@ namespace ProAgil.API.Controllers
 			}
 		}
 
+		[HttpPost("upload")]
+		public IActionResult Upload()
+		{
+			try
+			{
+				//pegando o arquivo no request
+				var file = Request.Form.Files[0];
+		
+				if(file.Length>0)
+				{
+					//configurando a pasta
+					var folderName = Path.Combine("Resources", "Images");
+					//Configurando o diretorio junto com a pasta
+					var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+	
+					//pegando nome do arquivo
+					var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+					var fullPath = Path.Combine(pathToSave, fileName.Replace("\"", " ".Trim()));
+
+					using(var stream = new FileStream(fullPath, FileMode.Create))
+					{
+						file.CopyTo(stream);
+					}
+				}
+				return Ok();
+			}
+			catch (System.Exception ex)
+			{
+				return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou: {ex.Message}");
+			}
+		}
 		[HttpPost]
 		public async Task<IActionResult> Post(EventoDTO model)
 		{
@@ -80,12 +114,12 @@ namespace ProAgil.API.Controllers
 		{
 			try
 			{
-				var evento = _context.GetAllEventoByIdAsync(id, false);
+				var evento = await _context.GetAllEventoByIdAsync(id, false);
 				if (evento == null)
 					return NotFound();
 
 				//mapeia as
-				await _mapper.Map(model, evento);
+				_mapper.Map(model, evento);
 
 				_context.Update(evento);
 				if (await _context.SaveChangesAsync())
