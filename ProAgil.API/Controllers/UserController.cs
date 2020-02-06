@@ -88,11 +88,8 @@ namespace ProAgil.API.Controllers
 			}
 			catch (Exception ex)
 			{
-
 				return this.StatusCode(StatusCodes.Status500InternalServerError, $"Falhou {ex.Message }");
-
 			}
-			return Ok(userLoginDTO);
 		}
 		private async Task<string> GenerateJwt(User user)
 		{

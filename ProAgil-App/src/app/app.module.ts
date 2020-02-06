@@ -14,8 +14,12 @@ import { EventoComponent } from './evento/evento.component';
 import { PalestranteComponent } from './palestrante/Palestrante.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TituloComponent } from './_shared/titulo/titulo.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegistrationComponent } from './user/registration/registration.component';
+
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
    declarations: [
@@ -26,7 +30,10 @@ import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
       ContatoComponent,
       PalestranteComponent,
       DashboardComponent,
-      DateTimeFormatPipePipe
+      DateTimeFormatPipePipe,
+      UserComponent,
+      LoginComponent,
+      RegistrationComponent
    ],
    imports: [
       BrowserModule,
@@ -43,6 +50,7 @@ import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
          timeOut: 3000,
          preventDuplicates: true,
          progressBar: true
+
       })
    ],
    providers: [],
