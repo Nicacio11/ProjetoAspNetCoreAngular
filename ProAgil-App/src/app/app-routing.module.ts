@@ -7,6 +7,7 @@ import { ContatoComponent } from './contato/contato.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -16,10 +17,10 @@ const routes: Routes = [
       {path: 'registration', component: RegistrationComponent},
     ]
   },
-  {path: 'evento', component: EventoComponent},
-  {path: 'palestrante', component: PalestranteComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'contato', component: ContatoComponent},
+  {path: 'evento', component: EventoComponent, canActivate:[AuthGuard]},
+  {path: 'palestrante', component: PalestranteComponent, canActivate:[AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'contato', component: ContatoComponent, canActivate:[AuthGuard]},
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
 

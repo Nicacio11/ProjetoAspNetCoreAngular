@@ -128,6 +128,7 @@ export class EventoComponent implements OnInit {
   getEventos() {
     this.eventoService.getAllEvento().subscribe(
        (eve: Evento[]) => {
+        console.log(eve);
         this.eventosFiltrados = eve;
         this.eventos = eve;
         this.dataAtual = new Date().getMilliseconds().toString();
