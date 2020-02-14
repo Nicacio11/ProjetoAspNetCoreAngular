@@ -61,7 +61,6 @@ export class EventoComponent implements OnInit {
       imagemUrl : ['', Validators.required],
       qtdPessoas : ['', 
         [Validators.required, Validators.max(120000)]]
-
     });
   }
   salvarAlteracao(template: any) {

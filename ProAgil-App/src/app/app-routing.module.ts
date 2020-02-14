@@ -8,6 +8,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { AuthGuard } from './auth/auth.guard';
+import { EventoEditComponent } from './evento/eventoEdit/eventoEdit.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
     ]
   },
   {path: 'evento', component: EventoComponent, canActivate:[AuthGuard]},
+  {path: 'evento/:id/edit', component: EventoEditComponent, canActivate:[AuthGuard]},
   {path: 'palestrante', component: PalestranteComponent, canActivate:[AuthGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path: 'contato', component: ContatoComponent, canActivate:[AuthGuard]},
