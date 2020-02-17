@@ -32,7 +32,7 @@
     <ul *ngIf="loggedIn()" class="navbar-nav" style="cursor:pointer;">
       <li class="nav-item dropdown" dropdown>
         <a dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{authService.decodedToken?.unique_name}}</a>
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{authService.User()}}</a>
       
       <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
         <a class="dropdown-item">

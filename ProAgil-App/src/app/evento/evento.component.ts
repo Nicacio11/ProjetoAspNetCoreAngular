@@ -79,7 +79,6 @@ export class EventoComponent implements OnInit {
           );
         } else {
           this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
-          console.log(this.evento);
           this.uploadImagem();
           this.eventoService.putEvento(this.evento).subscribe(
             (novoEvento) => {
