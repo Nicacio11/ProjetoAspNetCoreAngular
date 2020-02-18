@@ -4,6 +4,7 @@ import { EventoService } from 'src/app/_services/evento.service';
 import { BsModalService, BsLocaleService } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from 'src/app/_models/Evento';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,8 +16,10 @@ export class EventoEditComponent implements OnInit {
   titulo = 'Editar Evento';
   imagemUrl = 'assets/imgs/upload.png';
   registerForm: FormGroup;
-  evento:Evento = new Evento();
+  evento: Evento = new Evento();
   file: File;
+  fileNameToUpdate: string;
+  dataAtual;
 
   get lotes(): FormArray{
     return <FormArray> this.registerForm.get('lotes');
@@ -25,13 +28,14 @@ export class EventoEditComponent implements OnInit {
     return <FormArray> this.registerForm.get('redesSociais');
   }
 
-  constructor(private fb: FormBuilder, private eventoService: EventoService, private modalService: BsModalService, 
+  constructor(private fb: FormBuilder, private eventoService: EventoService, private router: ActivatedRoute, 
               private localeService: BsLocaleService, private toastr: ToastrService) {
       this.localeService.use('pt-br');
     }
 
   ngOnInit() {
     this.validation();
+    this.carregarEvento();
   }
   validation() {
     this.registerForm = this.fb.group({
@@ -47,7 +51,18 @@ export class EventoEditComponent implements OnInit {
       redesSociais: this.fb.array([this.criarRedeSocial()])
     });
   }
-
+  carregarEvento(){
+    const idEvento = +this.router.snapshot.paramMap.get('id');
+    this.eventoService.getEventoById(idEvento)
+      .subscribe((evento: Evento) => {
+        console.log( JSON.stringify(evento))
+        this.evento = Object.assign({}, evento);
+        this.imagemUrl = `http://localhost:5000/resources/images/${ this.evento.imagemUrl }?_ts${ this.dataAtual }`
+        this.fileNameToUpdate = this.evento.imagemUrl.toString();
+        this.evento.imagemUrl = '';
+        this.registerForm.patchValue(this.evento);
+      });
+  }
   criarLote(): FormGroup{
     return this.fb.group({
       nome: ['', Validators.required],
