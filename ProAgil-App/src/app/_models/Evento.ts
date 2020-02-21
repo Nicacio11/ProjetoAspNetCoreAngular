@@ -15,6 +15,6 @@ export class Evento {
     telefone: string;
     email: string;
     lotes: Lote[];
-    sociaisRedes: RedeSocial[];
+    redesSociais: RedeSocial[];
     palestrantes: Palestrante[];
 }

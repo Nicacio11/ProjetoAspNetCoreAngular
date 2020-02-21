@@ -33,7 +33,6 @@ export class EventoComponent implements OnInit {
   constructor(private fb: FormBuilder,    private eventoService: EventoService, private modalService: BsModalService, 
   private localeService: BsLocaleService, private toastr: ToastrService) {
     this.localeService.use('pt-br');
-
   }
   get filtroLista() {
     return this._filtroLista;

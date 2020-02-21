@@ -175,7 +175,7 @@
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <label>Telefone</label>
-                  <input type="text" formControlName="telefone" class="form-control is-invalid" 
+                  <input type="text" formControlName="telefone" mask="(000) 0000-0000" class="form-control is-invalid" 
                   [ngClass]="{'is-invalid': registerForm.get('telefone').errors && registerForm.get('telefone').touched}"
                   placeholder="Informe o telefone">
                   <div *ngIf="registerForm.get('telefone').hasError('required') && registerForm.get('telefone').touched" class="invalid-feedback">
