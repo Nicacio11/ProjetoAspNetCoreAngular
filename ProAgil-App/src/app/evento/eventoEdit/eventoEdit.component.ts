@@ -35,6 +35,7 @@ export class EventoEditComponent implements OnInit {
 
   ngOnInit() {
     this.validation();
+    this.dataAtual = new Date().getMilliseconds().toString();
     this.carregarEvento();
   }
   validation() {
@@ -56,9 +57,8 @@ export class EventoEditComponent implements OnInit {
     const idEvento = +this.router.snapshot.paramMap.get('id');
     this.eventoService.getEventoById(idEvento)
       .subscribe((evento: Evento) => {
-        console.log( JSON.stringify(evento))
         this.evento = Object.assign({}, evento);
-        this.imagemUrl = `http://localhost:5000/resources/images/${ this.evento.imagemUrl }?_ts${ this.dataAtual }`
+        this.imagemUrl = `http://localhost:5000/resources/images/${ this.evento.imagemUrl }?_ts${ this.dataAtual }`;
         this.fileNameToUpdate = this.evento.imagemUrl.toString();
         this.evento.imagemUrl = '';
         this.registerForm.patchValue(this.evento);
@@ -100,12 +100,37 @@ export class EventoEditComponent implements OnInit {
   removerRedeSocial(id: number){
     this.redesSociais.removeAt(id);
   }
-  onFileChange(file: FileList){
+  onFileChange(evento: any, file: FileList){
     const reader = new FileReader();
-    reader.onload = (event: any) => this.imagemUrl = event.target.result;
+    reader.onload = (event: any) => {
+      this.imagemUrl = event.target.result;
+    }
+    this.file = evento.target.files;
     reader.readAsDataURL(file[0]);
   }
-  salvarEvento(registerForm: any){
-    console.log(JSON.stringify(registerForm.value));
+  salvarEvento() {
+    if (this.registerForm.valid) {
+          this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
+          this.evento.imagemUrl = this.fileNameToUpdate;
+          this.uploadImagem();
+          this.eventoService.putEvento(this.evento).subscribe(
+            (novoEvento) => {
+              this.toastr.success('Editado com sucesso!');
+            }, error => {
+              this.toastr.error(`Erro ao alterar: ${error.message}!`);}
+            );
+    }
+  }
+  uploadImagem() {
+    if (this.registerForm.get('imagemUrl').value !== '') {
+      this.eventoService.postUpload(this.file, this.fileNameToUpdate)
+      .subscribe(
+        () => {
+          this.dataAtual = new Date().getMilliseconds().toString();
+          this.imagemUrl = `http://localhost:5000/resources/images/${ this.evento.imagemUrl }?_ts${ this.dataAtual }`
+        }
+        );
+      }
   }
 }
+

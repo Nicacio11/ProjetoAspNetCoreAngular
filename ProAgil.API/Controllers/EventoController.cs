@@ -119,6 +119,9 @@ namespace ProAgil.API.Controllers
 					return NotFound();
 
 				//mapeia as
+				_context.Delete(evento.RedesSociais.Where(x => !model.RedesSociais.Select(y => y.Id).ToList().Contains(x.Id)).ToList());
+				_context.Delete(evento.Lotes.Where(x => !model.Lotes.Select(y => y.Id).ToList().Contains(x.Id)).ToList());
+
 				_mapper.Map(model, evento);
 
 				_context.Update(evento);

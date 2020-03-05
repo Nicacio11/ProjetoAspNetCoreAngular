@@ -40,6 +40,7 @@ namespace ProAgil.Repository
             modelBuilder.Entity<PalestranteEvento>()
                 .HasKey(PE => new { PE.EventoId, PE.PalestranteId });
 
+                
         }
 
     }

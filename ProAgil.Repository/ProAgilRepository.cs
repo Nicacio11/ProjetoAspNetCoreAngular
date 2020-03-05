@@ -16,7 +16,7 @@ namespace ProAgil.Repository
 		{
 			_context = context;
 
-			//usado para não travar a query ao buscar 
+			//usado para nï¿½o travar a query ao buscar 
 			_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 		}
 
@@ -33,9 +33,9 @@ namespace ProAgil.Repository
 
 		public void Update<T>(T entity) where T : class
 		{
-			_context.Attach(entity);
-			_context.Entry(entity).State = EntityState.Modified;
-			//_context.Update(entity);
+			//_context.Attach(entity);
+			//_context.Entry(entity).State = EntityState.Modified;
+			_context.Update(entity);
 		}
 
 		public void Delete<T>(T entity) where T : class
@@ -44,7 +44,10 @@ namespace ProAgil.Repository
 			_context.Entry(entity).State = EntityState.Deleted;
 		//	_context.Remove(entity);
 		}
-
+		public void Delete<T>(List<T> entities) where T : class
+		{
+			entities.ForEach(x => Delete(x));
+		}
 		public async Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool palestrantes = false)
 		{
 			IQueryable<Evento> query = _context.Eventos

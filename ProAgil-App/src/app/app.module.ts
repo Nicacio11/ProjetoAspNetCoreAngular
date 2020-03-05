@@ -4,6 +4,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule, TooltipModule, ModalModule, BsDatepickerModule, TabsModule } from 'ngx-bootstrap';
 import { NgxMaskModule } from 'ngx-mask'
+import { NgxCurrencyModule } from 'ngx-currency'
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -51,6 +53,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
       ModalModule.forRoot(),
       BsDatepickerModule.forRoot(),
       NgxMaskModule.forRoot(),
+      NgxCurrencyModule,
       ReactiveFormsModule,
       BrowserAnimationsModule,
       ToastrModule.forRoot({
