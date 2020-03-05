@@ -23,3 +23,8 @@
 
 ### Realizando deploy do ASPNET Core
 ####  dotnet publish -o /Users/vitor.nicacio/Desktop/ProAgil
+#### Não esquece de criar a pasta de resources
+#### download do .net core hosting bundle - https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-aspnetcore-3.1.2-windows-hosting-bundle-installer
+#### cria o site para a app
+#### Editar Permissões - segurança - editar - adicionar - avançado - achar agora
+#### selecionar - everyone - iis_usrs - iusr - network - network service
