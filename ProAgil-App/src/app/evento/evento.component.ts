@@ -59,7 +59,7 @@ export class EventoComponent implements OnInit {
       telefone : ['', Validators.required],
       email : ['', [Validators.required, Validators.email]],
       imagemUrl : ['', Validators.required],
-      qtdPessoas : ['', 
+      qtdPessoas : ['',
         [Validators.required, Validators.max(120000)]]
     });
   }

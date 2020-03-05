@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }
   }
-
+  registrar(){
+    this.router.navigate(['/user/registration']);
+  }
   login(){
     this.authService.login(this.model)
       .subscribe(() => {
