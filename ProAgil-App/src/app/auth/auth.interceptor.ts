@@ -23,8 +23,15 @@ export class AuthInterceptor implements HttpInterceptor{
                     }
                 )
             );
-          } else {
-            return next.handle(req.clone());
-    }
+          }
+        const cloneReq = req.clone({
+            headers: req.headers.set('Authorization', `Bearer ${localStorage.getItem('Token')}`)
+                .set('Access-Control-Allow-Origin', '*')
+                .set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
+                .set('Access-Control-Allow-Headers',
+                    // tslint:disable-next-line: max-line-length
+                    'X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, X-Auth-Token, content-type')
+        })
+        return next.handle(cloneReq);
 }
 }
